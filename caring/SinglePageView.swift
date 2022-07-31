@@ -5,6 +5,7 @@
 //  Created by Peiyuan Chen on 2022/7/28.
 //
 
+import AlertToast
 import SwiftUI
 import WebKit
 
@@ -23,9 +24,13 @@ struct SinglePageView: View {
         VStack {
             if !showLoading {
                 SwiftUIWebView(html: self.html)
+            } else {
+                SwiftUIWebView(html: "")
             }
         }
+        .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarHidden(false)
         .onAppear {
             HttpAPI.getHTML(link: link) { html in
                 self.html = html
@@ -35,6 +40,13 @@ struct SinglePageView: View {
                 self.errMsg = errMsg
                 self.showError = true
             }
+        }
+        .toast(isPresenting: $showLoading) {
+            AlertToast(type: .loading, style: AlertToast.AlertStyle.style(titleFont: Font.title2))
+        }
+        .toast(isPresenting: $showError) {
+            AlertToast(type: .regular,
+                       title: self.errMsg, style: AlertToast.AlertStyle.style(titleFont: Font.title2))
         }
     }
 }

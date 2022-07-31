@@ -36,14 +36,14 @@ struct ListPageView: View {
                                 Image(systemName: items[idx].icon ?? "star.circle")
                                 Text(items[idx].title)
                                 Spacer()
-                                Image(systemName: items[idx].icon ?? "chevron.forward")
-                                    .foregroundColor(Color.init(red: 0.8, green: 0.8, blue: 0.8))
+                                Image(systemName: "chevron.forward")
+                                    .foregroundColor(Color(red: 0.8, green: 0.8, blue: 0.8))
                             }
                         }
                         .padding(.vertical, 10)
                         .font(.title2)
                         .foregroundColor(.primary)
-                
+
                         if idx != items.count - 1 {
                             Divider()
                         }
@@ -55,8 +55,8 @@ struct ListPageView: View {
                                 Image(systemName: items[idx].icon ?? "star.circle")
                                 Text(items[idx].title)
                                 Spacer()
-                                Image(systemName: items[idx].icon ?? "chevron.forward")
-                                    .foregroundColor(Color.init(red: 0.8, green: 0.8, blue: 0.8))
+                                Image(systemName: "chevron.forward")
+                                    .foregroundColor(Color(red: 0.8, green: 0.8, blue: 0.8))
                             }
                         }
                         .padding(.vertical, 10)

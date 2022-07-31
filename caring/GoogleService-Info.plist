@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>451474528450-ontedn263cs633q4iriqq0rvg7ek48tf.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.451474528450-ontedn263cs633q4iriqq0rvg7ek48tf</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDU8zAtn6cxJJyADn0XXtIAtLzr_xWCvKc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>451474528450</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>io.go4talk.caring</string>
+	<key>PROJECT_ID</key>
+	<string>ios-app-e0a63</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ios-app-e0a63.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:451474528450:ios:cf64e0ab9c858875f0035b</string>
+</dict>
+</plist>
