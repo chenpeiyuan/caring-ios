@@ -9,7 +9,7 @@ import Alamofire
 import Foundation
 
 class HttpAPI {
-    static let initLink = "https://caring.ustbtech.cn/data.json"
+    static let initLink = "https://caring.ustbtech.cn/data/index.json"
 
     static func getList(
         link: String,
