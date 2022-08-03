@@ -28,8 +28,6 @@ struct ContentView: View {
                             destination: AboutView()
                         ) {
                             Image(systemName: "info.circle")
-                                .font(.title2)
-                                .foregroundColor(.secondary)
                         }
                     }
                 }
