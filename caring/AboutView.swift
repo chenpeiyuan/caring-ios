@@ -22,8 +22,6 @@ func getDisplayName() -> String? {
     return Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String
 }
 
-let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-
 struct AboutView: View {
     var body: some View {
         VStack {
@@ -32,8 +30,8 @@ struct AboutView: View {
             Text(getDisplayName() ?? "爱老助手")
                 .padding(.bottom, 10)
                 .font(.title)
-            if appVersion != nil {
-                Text("Version " + appVersion!)
+            if Constants.appVersion != nil {
+                Text("Version " + Constants.appVersion!)
                     .font(.title3)
             }
         }

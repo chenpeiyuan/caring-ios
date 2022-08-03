@@ -20,7 +20,8 @@ enum HttpAPI {
     ) {
         AF.request(
             link,
-            method: .get
+            method: .get,
+            headers: HTTPHeaders([HTTPHeader.userAgent(Constants.userAgent)])
         ).response { response in
             switch response.result {
             case let .success(data):
@@ -33,8 +34,10 @@ enum HttpAPI {
                     onFailure("网络请求失败，请稍后再试")
                     return
                 }
-                print(items!)
-                print("<=========================")
+                if debug {
+                    print(items!)
+                    print("<=========================")
+                }
                 onSuccess(items!)
             case .failure:
                 onFailure("网络请求失败，请稍后再试")
@@ -49,7 +52,8 @@ enum HttpAPI {
     ) {
         AF.request(
             link,
-            method: .get
+            method: .get,
+            headers: HTTPHeaders([HTTPHeader.userAgent(Constants.userAgent)])
         ).response { response in
             switch response.result {
             case let .success(data):

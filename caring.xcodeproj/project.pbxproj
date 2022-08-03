@@ -23,6 +23,7 @@
 		2D6DBE972896EB490077C9D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D6DBE962896EB490077C9D8 /* GoogleService-Info.plist */; };
 		2D748F192899862400A06CA8 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D748F182899862400A06CA8 /* AboutView.swift */; };
 		2DE25216289AC5E70023DE97 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 2DE25215289AC5E70023DE97 /* readme.md */; };
+		2DE25218289AD2E50023DE97 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE25217289AD2E50023DE97 /* Constants.swift */; };
 		2DF6DC182896ED9500FF2235 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2DF6DC172896ED9500FF2235 /* FirebaseAnalytics */; };
 		2DF6DC1A2896ED9500FF2235 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2DF6DC192896ED9500FF2235 /* FirebaseAnalyticsSwift */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		2D6DBE962896EB490077C9D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2D748F182899862400A06CA8 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		2DE25215289AC5E70023DE97 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
+		2DE25217289AD2E50023DE97 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				2D2DFECF2892CE9400CF1337 /* ListPageView.swift */,
 				2D2DFED12892D5D500CF1337 /* SinglePageView.swift */,
 				2D748F182899862400A06CA8 /* AboutView.swift */,
+				2DE25217289AD2E50023DE97 /* Constants.swift */,
 			);
 			path = caring;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				2D2DFED02892CE9400CF1337 /* ListPageView.swift in Sources */,
 				2D2DFEA02892C51500CF1337 /* ContentView.swift in Sources */,
 				2D2DFE9E2892C51500CF1337 /* CaringApp.swift in Sources */,
+				2DE25218289AD2E50023DE97 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
