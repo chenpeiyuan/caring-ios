@@ -15,6 +15,7 @@ struct ListPageView: View {
     @State private var isLoading: Bool = true
     @State private var items: [DataItem] = []
 
+    @State private var showReload = false
     @State private var showLoading = false
     @State private var showError = false
     @State private var errMsg = ""
@@ -24,67 +25,87 @@ struct ListPageView: View {
         self.title = title
     }
 
-    var body: some View {
-        ScrollView {
-            VStack {
-                ForEach(0 ..< items.count, id: \.self) { idx in
-                    if items[idx].isDir {
-                        NavigationLink(
-                            destination: ListPageView(link: items[idx].link, title: items[idx].title)
-                        ) {
-                            HStack {
-                                Image(systemName: items[idx].icon ?? "star.circle")
-                                Text(items[idx].title)
-                                Spacer()
-                                Image(systemName: items[idx].icon ?? "chevron.forward")
-                                    .foregroundColor(Color.init(red: 0.8, green: 0.8, blue: 0.8))
-                            }
-                        }
-                        .padding(.vertical, 10)
-                        .font(.title2)
-                        .foregroundColor(.primary)
-                
-                        if idx != items.count - 1 {
-                            Divider()
-                        }
-                    } else {
-                        NavigationLink(
-                            destination: SinglePageView(link: items[idx].link)
-                        ) {
-                            HStack {
-                                Image(systemName: items[idx].icon ?? "star.circle")
-                                Text(items[idx].title)
-                                Spacer()
-                                Image(systemName: items[idx].icon ?? "chevron.forward")
-                                    .foregroundColor(Color.init(red: 0.8, green: 0.8, blue: 0.8))
-                            }
-                        }
-                        .padding(.vertical, 10)
-                        .font(.title2)
-                        .foregroundColor(.primary)
+    func loadList() {
+        showLoading = true
+        showError = false
+        HttpAPI.getList(link: link) { data in
+            self.items = data
+            self.showLoading = false
+            self.showReload = false
+        } onFailure: { errMsg in
+            self.showReload = true
+            self.showLoading = false
+            self.errMsg = errMsg
+            self.showError = true
+        }
+    }
 
-                        if idx != items.count - 1 {
-                            Divider()
-                        }
-                    }
+    var body: some View {
+        VStack {
+            if showReload {
+                Spacer()
+                Button {
+                    loadList()
+                } label: {
+                    Label("重新加载", systemImage: "arrow.clockwise.circle")
+                        .font(.title2)
                 }
                 Spacer()
+                Spacer()
+            } else {
+                ScrollView {
+                    ForEach(0 ..< items.count, id: \.self) { idx in
+                        if items[idx].isDir {
+                            NavigationLink(
+                                destination: ListPageView(link: items[idx].link, title: items[idx].title)
+                            ) {
+                                HStack {
+                                    Image(systemName: items[idx].icon ?? "star.circle")
+                                    Text(items[idx].title)
+                                    Spacer()
+                                    Image(systemName: "chevron.forward")
+                                        .foregroundColor(Color(red: 0.8, green: 0.8, blue: 0.8))
+                                }
+                            }
+                            .padding(.vertical, 10)
+                            .font(.title2)
+                            .foregroundColor(.primary)
+
+                            if idx != items.count - 1 {
+                                Divider()
+                            }
+                        } else {
+                            NavigationLink(
+                                destination: SinglePageView(link: items[idx].link)
+                            ) {
+                                HStack {
+                                    Image(systemName: items[idx].icon ?? "star.circle")
+                                    Text(items[idx].title)
+                                    Spacer()
+                                    Image(systemName: "chevron.forward")
+                                        .foregroundColor(Color(red: 0.8, green: 0.8, blue: 0.8))
+                                }
+                            }
+                            .padding(.vertical, 10)
+                            .font(.title2)
+                            .foregroundColor(.primary)
+
+                            if idx != items.count - 1 {
+                                Divider()
+                            }
+                        }
+                    }
+                    Spacer()
+                }
             }
-            .padding()
         }
+        .padding()
+        .frame(maxWidth: .infinity)
         .navigationBarTitleDisplayMode(.large)
         .navigationTitle(Text(title))
         .navigationBarHidden(false)
         .onAppear {
-            showLoading = true
-            HttpAPI.getList(link: link) { data in
-                self.items = data
-                self.showLoading = false
-            } onFailure: { errMsg in
-                self.showLoading = false
-                self.errMsg = errMsg
-                self.showError = true
-            }
+            loadList()
         }
         .toast(isPresenting: $showLoading) {
             AlertToast(type: .loading, style: AlertToast.AlertStyle.style(titleFont: Font.title2))

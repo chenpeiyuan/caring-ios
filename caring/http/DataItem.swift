@@ -17,6 +17,6 @@ struct DataItem: Codable {
         case link
         case isDir = "is_dir"
         case title
-        case icon
+        case icon = "ios_icon"
     }
 }
