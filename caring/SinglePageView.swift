@@ -33,7 +33,7 @@ struct SwiftUIWebView: UIViewRepresentable {
     private let webView: WKWebView
     init(url: String) {
         webView = WKWebView()
-        webView.load(URLRequest.init(url: URL(string: url)!))
+        webView.load(URLRequest(url: URL(string: url)!))
     }
 
     func makeUIView(context _: Context) -> WKWebView {

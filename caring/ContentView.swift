@@ -22,6 +22,17 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ListPageView(link: HttpAPI.initLink, title: "首页")
+                .toolbar {
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        NavigationLink(
+                            destination: AboutView()
+                        ) {
+                            Image(systemName: "info.circle")
+                                .font(.title2)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                }
         }
     }
 }

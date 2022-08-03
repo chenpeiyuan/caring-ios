@@ -8,7 +8,9 @@
 import Alamofire
 import Foundation
 
-class HttpAPI {
+var debug = false
+
+enum HttpAPI {
     static let initLink = "https://caring.ustbtech.cn/data/index.json"
 
     static func getList(
@@ -22,11 +24,17 @@ class HttpAPI {
         ).response { response in
             switch response.result {
             case let .success(data):
+                if debug {
+                    print("=========================>", link)
+                    print(String(decoding: data!, as: UTF8.self))
+                }
                 let items = try? JSONDecoder().decode([DataItem].self, from: data!)
                 if items == nil {
                     onFailure("网络请求失败，请稍后再试")
                     return
                 }
+                print(items!)
+                print("<=========================")
                 onSuccess(items!)
             case .failure:
                 onFailure("网络请求失败，请稍后再试")
