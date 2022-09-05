@@ -61,6 +61,7 @@ struct ListPageView: View {
                             ) {
                                 HStack {
                                     Image(systemName: items[idx].icon ?? "star.circle")
+                                        .frame(width: 32.0)
                                     Text(items[idx].title)
                                     Spacer()
                                     Image(systemName: "chevron.forward")
@@ -80,6 +81,7 @@ struct ListPageView: View {
                             ) {
                                 HStack {
                                     Image(systemName: items[idx].icon ?? "star.circle")
+                                        .frame(width: 32.0)
                                     Text(items[idx].title)
                                     Spacer()
                                     Image(systemName: "chevron.forward")

@@ -35,7 +35,7 @@ struct AboutView: View {
 
             Image(uiImage: GetAppIcon())
                 .padding(.bottom, 10)
-            Text(getDisplayName() ?? "爱老助手")
+            Text(getDisplayName() ?? "关怀助手")
                 .padding(.bottom, 10)
                 .font(.title)
             if Constants.appVersion != nil {
